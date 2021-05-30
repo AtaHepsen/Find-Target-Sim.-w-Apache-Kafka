@@ -162,9 +162,9 @@ public class WorldMain {
             int x = random.nextInt(1001);
             int y = random.nextInt(1001);
             int indexOfTarget = (y*1000)+x;
-            int x2 = indexOfTarget % 1000 - 500;
-            int y2 = 500 - (int)(indexOfTarget / 1000);
-            System.out.println("From WORLD:     World ID: "+worldCounter+ " Target Coords: "+"("+x2+", "+y2+")");
+            x = x - 500;
+            y = y - 500;
+            System.out.println("From WORLD:     World ID: "+worldCounter+ " Target Coords: "+"("+x+", "+y+")");
             bitSet.set(indexOfTarget, true);
             bitSet.set(bitSet.size()-1, true);
             ProducerRecord producerRecord = new ProducerRecord("WorldData",Integer.toString(worldCounter),bitSet.toByteArray());

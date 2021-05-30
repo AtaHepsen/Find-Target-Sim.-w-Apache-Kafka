@@ -56,8 +56,8 @@ public class Sensor {
     }
 
     public void sendTargetCoord(int indexOfTarget, Object worldID){
-        int x2 = indexOfTarget % 1000 - 500;
-        int y2 = 500 - (int)(indexOfTarget / 1000);
+        int x2 = (indexOfTarget % 1000) - 500;
+        int y2 = (int)(indexOfTarget / 1000) - 500;
         double angle = Math.atan2(y2 - y, x2 - x) * 180 / Math.PI;
         System.out.println("From SENSOR:    I found target with angle of "+ angle);
         ProducerRecord producerRecord = new ProducerRecord(topic, x +"_"+ y,worldID+"_"+ angle);
